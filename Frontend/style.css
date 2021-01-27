@@ -1,0 +1,21 @@
+.dropshadow {
+  filter: drop-shadow(3px 3px 3px rgb(170, 170, 170));
+}
+
+.dropshadow-sm {
+  filter: drop-shadow(3px 3px 3px rgb(206, 206, 206));
+}
+
+.bi-cart3 {
+  font-size: 1.4rem;
+}
+
+.fs-3{
+    font-size: 1.4rem;
+}
+
+#banner{
+    padding: 30px;
+    background: linear-gradient(140deg, #e8ac5e94, #8f5ef87e);
+    background-o
+}
