@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmer commande - Orinoco</title>
+
+    <!-- CSS PERSO -->
+
+    <link rel="stylesheet" href="/Frontend/style.css" />
+
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header role="banner">
+      <nav class="navbar shadow-sm sticky-top navbar-light bg-light">
+        <div class="container-fluid">
+          <a href="index.html" class="navbar-brand"
+            ><img
+              class="dropshadow-sm"
+              alt="Orinoco, l'e-commerce spécialisé !"
+              src="/Frontend/img/logo_orinoco.png"
+              width="120vw"
+          /></a>
+          <div class="d-flex">
+            <a href="basket.html" id="basketIcon"
+              ><i class="bi bi-cart3 dropshadow-sm"></i
+              ><span id="basketNbr"></span
+            ></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- FIN HEADER -->
+
+    <!-- BANNER -->
+    <div id="banner" class="col-12 text-center text-light txt-shadow">
+      <h1 class="h2 dropshadow">Finalisation de votre commande</h1>
+      <p class="fs-3 dropshadow m-0">
+        Plus qu'une étape, <br />
+        parlez-nous un peu de vous
+      </p>
+    </div>
+    <!-- FIN BANNER -->
+
+    <div class="container">
+      <!-- FORM -->
+      <form class="m-5">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstName">Prénom</label>
+            <input
+              type="fname"
+              class="form-control"
+              id="firstName"
+              placeholder="Olivier"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Nom</label>
+            <input
+              type="lname"
+              class="form-control"
+              id="lastName"
+              placeholder="De Carglass"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="olivierdecarglass@gmail.com"
+          />
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="address">Adresse</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="12 rue Jean Martin"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="city">Ville</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="Tourcoing"
+            />
+          </div>
+        </div>
+        <div class="form-row col-12">
+          <button type="submit" class="button mx-auto mt-4 dropshadow">Valider ma commande</button>
+        </div>
+      </form>
+      <!-- FIN FORM -->
+    </div>
+    <!-- FOOTER -->
+    <footer class="bg-light text-center">
+      <div class="container p-3">
+        <div class="row">
+          <div class="col-12">
+            <img
+              class="dropshadow-sm"
+              src="/Frontend/img/logo_orinoco.png"
+              width="100vw"
+              alt="Orinoco, l'e-commerce spécialisé !"
+            />
+            <p class="m-3">Orinoco, l'e-commerce spécialisé</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2021 Copyright:
+        <a class="text-dark" href="">Orinoco.com</a>
+      </div>
+    </footer>
+    <!-- FIN FOOTER -->
+
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <!-- SCRIPTS PERSOS -->
+    <script src="index.js"></script>
+  </body>
+</html>

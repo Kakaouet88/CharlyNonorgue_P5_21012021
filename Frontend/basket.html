@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orinoco Teddies</title>
+    <title>Panier - Orinoco</title>
 
     <!-- CSS PERSO -->
 
@@ -49,37 +49,56 @@
 
       <!-- BANNER -->
       <div id="banner" class="col-12 text-center text-light txt-shadow">
-        <h1 class="h2 dropshadow">Orinoco Teddies</h1>
+        <h1 class="h2 dropshadow">Mon Panier</h1>
         <p class="fs-3 dropshadow m-0">
-          Le plus grand choix d'oursons en peluche d'internet !
+            Mais pour qui sont toutes ces belles choses ?
         </p>
       </div>
       <!-- FIN BANNER -->
 
+      <!-- CONTENT -->
 
-      <!-- ROW LISTE PRODUITS -->
       <div class="container">
-        <div id="productsList" class="row my-5 mx-auto">
+              <div id="basketContent d-flex justify-content-center">
+                <!-- ELSE SI PANIER VIDE -->
+                  <p class="text-center page-height">Oups !... C'est bien vide ici...</p>
 
-          <!-- 1 CARD -->
-          <!-- <a href="product.html" class="text-reset text-decoration-none col-4 my-4">
-          <div class="card shadow-sm" style="width: 18rem;">
-            <img class="card-img-top" src="/JWDP5/images/teddy_3.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="cardProductName">Oggy</h5>
-              <p class="cardProductDescription">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias quam</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item cardProductPrice font-weight-bold">120€</li>
-              <li class="list-group-item cardProductColors"><div class="colorPuce puceBlue"></div></li>
-            </ul>
-          </div>
-        </a> -->
-        <!-- 1 CARD -->
+                <!-- IF PANIER PAS VIDE CARTE PRODUIT MODELE-->
+                <a href="product.html" class="text-decoration-none text-reset">
+                  <div class="productCard shadow-sm row mx-auto d-flex justify-content-center align-items-center my-5">
+                    <div class="col-4 p-2 cardText">
+                      <h2 class="cardTitle productName h4 ml-3">Willy</h2>
+                    </div>
+                    <div class="col-2 p-2 cardColor">
+                      <div class="colorPuce puceBrown"></div>
+                    </div>
+                    <div class="col-3 p-2 cardImg">
+                      <img src="/JWDP5/images/teddy_1.jpg" alt="productName" height="100px">
+                    </div>
+                    <div class="col-2 my-auto">
+                      <p class="cardPrice m-0 font-weight-bold">200€</p>
+                      <p class="cardQt m-0">Qté : <span class="quantityNbr">2</span></p>
+                    </div>
+                  </div>
+              </div>
+            </a>
+              <!-- FIN CARTE PRODUIT -->
 
-        </div>
+              <hr>
+
+              <!-- TOTAL -->
+
+              <div class="basketTotal d-flex justify-content-center m-5 h4">
+                <p class="total">TOTAL : <span class="totalNbr">400€</span></p>
+              </div>
+
+              <!-- BTN ORDER -->
+              <div id="orderDiv" class="d-flex justify-content-center m-5">
+                <a href="order.html"><button id="orderRedirectBtn" class="button dropshadow-sm"> Finaliser ma commande </button></a>
+              </div>
       </div>
-      <!-- FIN ROW LISTE PPRODUITS -->
+
+      <!-- CONTENT -->
 
 
       <!-- FOOTER -->

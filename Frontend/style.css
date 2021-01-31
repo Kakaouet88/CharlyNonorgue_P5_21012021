@@ -1,21 +1,177 @@
 .dropshadow {
-  filter: drop-shadow(3px 3px 3px rgb(170, 170, 170));
+  filter: drop-shadow(3px 3px 3px #aaaaaa);
 }
 
 .dropshadow-sm {
-  filter: drop-shadow(3px 3px 3px rgb(206, 206, 206));
+  filter: drop-shadow(3px 3px 3px #cecece);
 }
 
 .bi-cart3 {
   font-size: 1.4rem;
 }
 
-.fs-3{
-    font-size: 1.4rem;
+.fs-3 {
+  font-size: 1.4rem;
 }
 
-#banner{
-    padding: 30px;
-    background: linear-gradient(140deg, #e8ac5e94, #8f5ef87e);
-    background-o
+#banner {
+  padding: 20px;
+  background: linear-gradient(140deg, #e8ac5e94, #8f5ef87e);
 }
+
+.page-height {
+  padding: 25vh 0 25vh 0;
+}
+
+.button {
+  padding: 10px;
+  background: #9e74fa;
+  border-radius: 80px;
+  color: white;
+  text-shadow: 1px 1px 1px #dddddd;
+  border: none;
+}
+
+.productCard {
+  border-radius: 50px;
+  width: 40vw;
+}
+
+.pucePink {
+  background-color: pink;
+}
+
+.puceChocolate {
+  background-color: chocolate;
+}
+
+.puceTan {
+  background-color: tan;
+}
+
+.puceBeige {
+  background-color: beige;
+}
+
+.puceBrown {
+  background-color: #a54d2a;
+}
+
+.puceDarkBrown {
+  background-color: #753517;
+}
+
+.pucePaleBrown {
+  background-color: #a16933;
+}
+
+.puceWhite {
+  background-color: white;
+}
+
+.puceBlue {
+  background-color: blue;
+}
+
+.colorPuce {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+.colorTxt {
+  font-size: 0.8rem;
+  padding: 4px 0 0 2px;
+}
+
+/* COLOR PICKER */
+.white {
+  border: 2px solid #bfbfbf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=radio] {
+  display: none;
+}
+input[type=radio]:checked + label span {
+  transform: scale(1.25);
+}
+input[type=radio]:checked + label .chocolate {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .tan {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .beige {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .brown {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .darkbrown {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .palebrown {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .blue {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .white {
+  border: 1.5px solid black;
+}
+input[type=radio]:checked + label .pink {
+  border: 1.5px solid black;
+}
+
+label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+label:hover span {
+  transform: scale(1.25);
+  border: 1.5px solid black;
+}
+label span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px white inset;
+  transition: transform 0.2s ease-in-out;
+}
+label span.chocolate {
+  background: chocolate;
+}
+label span.tan {
+  background: tan;
+}
+label span.beige {
+  background: beige;
+}
+label span.brown {
+  background: #a54d2a;
+}
+label span.darkbrown {
+  background: #753517;
+}
+label span.palebrown {
+  background: #a16933;
+}
+label span.blue {
+  background: blue;
+}
+label span.white {
+  background: white;
+}
+label span.pink {
+  background: pink;
+}
+
+/*# sourceMappingURL=style.css.map */

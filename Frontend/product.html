@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produit - Orinoco</title>
+
+    <!-- CSS PERSO -->
+
+    <link rel="stylesheet" href="/Frontend/style.css" />
+
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+
+
+      <!-- HEADER -->
+      <header role="banner">
+        <nav class="navbar shadow-sm sticky-top navbar-light bg-light">
+          <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"
+              ><img
+                class="dropshadow-sm"
+                alt="Orinoco, l'e-commerce spécialisé !"
+                src="/Frontend/img/logo_orinoco.png"
+                width="120vw"
+            /></a>
+            <div class="d-flex">
+              <a href="basket.html" id="basketIcon"
+                ><i class="bi bi-cart3 dropshadow-sm"></i
+              ><span id="basketNbr"></span></a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- FIN HEADER -->
+
+
+      <!-- BANNER -->
+      <div id="banner" class="col-12 text-center text-light txt-shadow">
+        <h1 class="h2 dropshadow">Orinoco Teddies</h1>
+        <p class="fs-3 dropshadow m-0">
+          Le plus grand choix d'oursons en peluche d'internet !
+        </p>
+      </div>
+      <!-- FIN BANNER -->
+
+      <!-- CONTENT -->
+      <div class="container">
+
+        <!--Section: Block Content-->
+        <section class="my-5">
+  
+          <div class="row">
+            <div class="col-md-5 mb-4 mb-md-0">
+  
+              <div class="view zoom z-depth-2 rounded">
+                <img class="img-fluid w-100" src="/JWDP5/images/teddy_5.jpg" alt="bobby">
+              </div>
+  
+            </div>
+            <div class="col-md-7">
+  
+              <h1 id="productPageName" class="h3">Bobby</h1>
+              <p id="productPagePrice" class="font-weight-bold">185€</p>
+              <p id="prodctPageDescription" class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+                error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+                officia quis dolore quos sapiente tempore alias.</p>
+
+              <div class="colorPick">
+                <h2 class="h6">Choisissez la couleur de votre nouvel ami</h2>
+
+                <input type="radio" name="color" id="chocolate" />
+                <label for="chocolate"><span class="chocolate"></span></label>
+
+                <input type="radio" name="color" id="tan" />
+                <label for="tan"><span class="tan"></span></label>
+
+                <input type="radio" name="color" id="beige" />
+                <label for="beige"><span class="beige"></span></label>
+
+                <input type="radio" name="color" id="brown" />
+                <label for="brown"><span class="brown"></span></label>
+
+                <input type="radio" name="color" id="darkbrown" />
+                <label for="darkbrown"><span class="darkbrown"></span></label>
+
+                <input type="radio" name="color" id="palebrown" />
+                <label for="palebrown"><span class="palebrown"></span></label>
+
+                <input type="radio" name="color" id="blue" />
+                <label for="blue"><span class="blue"></span></label>
+
+                <input type="radio" name="color" id="white" />
+                <label for="white"><span class="white"></span></label>
+
+                <input type="radio" name="color" id="pink" />
+                <label for="pink"><span class="pink"></span></label>
+
+              </div>
+
+              <hr>
+              <div class="table-responsive mb-2">
+                <table class="table table-sm table-borderless">
+                  <tbody>
+                    <tr>
+                      <td class="pl-0 pb-0 w-25">Quantity</td>
+                    </tr>
+                    <tr>
+                      <td class="pl-0">
+                        <div class="def-number-input number-input safari_only mb-0">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                            class="font-weight-bold"> - </button>
+                          <input class="quantity" min="0" name="quantity" value="1" type="number">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                            class="font-weight-bold"> + </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button type="button" class="button m-2 d-flex align-items-center px-3"><i class="bi bi-cart3 mr-2"></i
+                >Ajouter au panier </button>
+            </div>
+          </div>
+  
+        </section>
+      </div>
+      <!-- FIN CONTENT -->
+
+
+      <!-- FOOTER -->
+      <footer class="bg-light text-center">
+        <div class="container p-3">
+          <div class="row">
+            <div class="col-12">
+              <img class="dropshadow-sm" src="/Frontend/img/logo_orinoco.png" width="100vw" alt="Orinoco, l'e-commerce spécialisé !">
+              <p class="m-3">Orinoco, l'e-commerce spécialisé</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+          © 2021 Copyright:
+          <a class="text-dark" href="">Orinoco.com</a>
+        </div>
+      </footer>
+      <!-- FIN FOOTER -->
+
+
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <!-- SCRIPTS PERSOS -->
+    <script src="index.js"></script>
+  </body>
+</html>
