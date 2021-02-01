@@ -27,7 +27,6 @@ const getProductByID = async () => {
   for (i = 0; i < products.length; i++) {
     if (products[i]._id === id) {
       productItem.push(products[i]);
-      console.log(productItem);
     }
   }
 };
@@ -41,7 +40,8 @@ const displayProduct = async () => {
   if (productItem.length < 1) {
     window.alert("Oups, aucun produit correspondant n'a été trouvé");
   } else {
-    document.getElementById("productPageContent").innerHTML = `
+    document.getElementById("productPageContent").innerHTML = 
+    `
     <section class="my-5">
     
     <div class="row">
@@ -59,34 +59,8 @@ const displayProduct = async () => {
 
             <div class="colorPick">
               <h2 class="h6 mb-3">Choisissez la couleur de ${productItem[0].name}</h2>
-              
-              <input type="radio" name="color" id="chocolate" />
-              <label for="chocolate"><span class="chocolate"></span></label>
-
-              <input type="radio" name="color" id="tan" />
-              <label for="tan"><span class="tan"></span></label>
-
-              <input type="radio" name="color" id="beige" />
-              <label for="beige"><span class="beige"></span></label>
-              
-              <input type="radio" name="color" id="brown" />
-              <label for="brown"><span class="brown"></span></label>
-              
-              <input type="radio" name="color" id="darkbrown" />
-              <label for="darkbrown"><span class="darkbrown"></span></label>
-              
-              <input type="radio" name="color" id="palebrown" />
-              <label for="palebrown"><span class="palebrown"></span></label>
-
-              <input type="radio" name="color" id="blue" />
-              <label for="blue"><span class="blue"></span></label>
-              
-              <input type="radio" name="color" id="white" />
-              <label for="white"><span class="white"></span></label>
-
-              <input type="radio" name="color" id="pink" />
-              <label for="pink"><span class="pink"></span></label>
-              
+              <div id="colorPicker">
+              </div>
             </div>
 
             <hr>
@@ -124,4 +98,6 @@ displayProduct();
 
 // COULEURS ......
 
+console.log(productItem);
 
+console.log(productItem[0].colors)
