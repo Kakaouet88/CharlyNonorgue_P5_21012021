@@ -1,64 +1,34 @@
-// *********FETCH**************
+// *********PRODUCT**************
 var products;
+let param = new URL(window.location).searchParams;
+let productID = param.get("id");
 
-const fetchProducts = async () => {
-  products = await fetch("http://localhost:3000/api/teddies").then((res) =>
-    res.json()
-  );
-};
-
-// *************************PAGE PRODUIT**************
-
-productPageContent = document.getElementById("productPageContent");
-
-// RECUP L ID DE L URL POUR GENERER LE CONTENU DE LA PAGE PRODUIT
-
-var id = window.location.toString().split("#")[1];
-
-console.log(id);
-
-// RECUP L ITEM PAR SON ID ET LE STOCKE DANS UN ARRAY
-
-var productItem = [];
-
-const getProductByID = async () => {
-  await fetchProducts();
-
-  for (i = 0; i < products.length; i++) {
-    if (products[i]._id === id) {
-      productItem.push(products[i]);
-    }
-  }
-};
-// message d'alerte si l'url ne correspond à aucun produit
-
-// INJECTE L AFFICHAGE DE L ITEM DANS LE HTML
-
-const displayProduct = async () => {
-  await getProductByID();
-
-  if (productItem.length < 1) {
-    window.alert("Oups, aucun produit correspondant n'a été trouvé");
-  } else {
-    document.getElementById("productPageContent").innerHTML = 
-    `
+fetch("http://localhost:3000/api/teddies/" + productID)
+  .then((res) => res.json())
+  .then((product) => {
+    if (product == null) {
+      window.alert("Oups, aucun produit correspondant n'a été trouvé");
+    } else {
+      console.log(product);
+      console.log(product.colors);
+      document.getElementById("productPageContent").innerHTML = `
     <section class="my-5">
     
     <div class="row">
           <div class="col-md-5 mb-4 mb-md-0">
           
           <div class="view zoom z-depth-2 rounded">
-              <img class="img-fluid w-100" src="${productItem[0].imageUrl}" alt="${productItem[0].name}">
+              <img class="img-fluid w-100" src="${product.imageUrl}" alt="${product.name}">
               </div>
           </div>
           <div class="col-md-7">
 
-          <h1 id="productPageName" class="h3">${productItem[0].name}</h1>
-            <p id="productPagePrice" class="font-weight-bold">${productItem[0].price} €</p>
-            <p id="prodctPageDescription" class="pt-1">${productItem[0].description}</p>
+          <h1 id="productPageName" class="h3">${product.name}</h1>
+            <p id="productPagePrice" class="font-weight-bold">${product.price} €</p>
+            <p id="prodctPageDescription" class="pt-1">${product.description}</p>
 
             <div class="colorPick">
-              <h2 class="h6 mb-3">Choisissez la couleur de ${productItem[0].name}</h2>
+              <h2 class="h6 mb-3">Choisissez la couleur de ${product.name}</h2>
               <div id="colorPicker">
               </div>
             </div>
@@ -91,13 +61,6 @@ const displayProduct = async () => {
         
         </section>
         `;
-  }
-};
+    }
+  });
 
-displayProduct();
-
-// COULEURS ......
-
-console.log(productItem);
-
-console.log(productItem[0].colors)

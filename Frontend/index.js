@@ -21,7 +21,7 @@ const displayProductsList = async () => {
       (product) =>
       
         `
-        <a href="./Frontend/product.html#${product._id}" class="text-decoration-none text-reset col-md-4 my-4 productLink" id="${product._id}">
+        <a href="./Frontend/product.html?id=${product._id}" class="text-decoration-none text-reset col-md-4 my-4 productLink" id="${product._id}">
           <div class="card shadow-sm mx-3" style="height : 70vh; max-height: 500px; min-height: 370px">
             <img class="card-img-top" src=${product.imageUrl} alt="Card image cap">
             <div class="card-body">
