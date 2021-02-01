@@ -7,7 +7,7 @@
 
     <!-- CSS PERSO -->
 
-    <link rel="stylesheet" href="/Frontend/style.css" />
+    <link rel="stylesheet" href="./Frontend/style.css" />
 
     <!-- BOOTSTRAP -->
     <link
@@ -18,7 +18,7 @@
     />
     <link
       rel="stylesheet"
-      href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"
     />
   </head>
 
@@ -33,11 +33,11 @@
               ><img
                 class="dropshadow-sm"
                 alt="Orinoco, l'e-commerce spécialisé !"
-                src="/Frontend/img/logo_orinoco.png"
+                src="./Frontend/img/logo_orinoco.png"
                 width="120vw"
             /></a>
             <div class="d-flex">
-              <a href="basket.html" id="basketIcon"
+              <a href="./Frontend/basket.html" id="basketIcon"
                 ><i class="bi bi-cart3 dropshadow-sm"></i
               ><span id="basketNbr"></span></a>
             </div>
@@ -55,23 +55,24 @@
         </p>
       </div>
       <!-- FIN BANNER -->
-
-
+      
       <!-- ROW LISTE PRODUITS -->
-      <div class="container">
+      <div class="container" id="">
+        <button type="button" id="testbtn" class="button my-5 d-flex align-items-center px-3">Afficher Produit</button>
+
         <div id="productsList" class="row my-5 mx-auto">
 
           <!-- 1 CARD -->
-          <!-- <a href="product.html" class="text-reset text-decoration-none col-4 my-4">
-          <div class="card shadow-sm" style="width: 18rem;">
-            <img class="card-img-top" src="/JWDP5/images/teddy_3.jpg" alt="Card image cap">
+          <!-- <a href="./Frontend/product.html#${product._id}" class="text-decoration-none text-reset col-md-4 my-4 productLink" id="${product._id}">
+          <div class="card shadow-sm mx-3" style="height : 70vh; max-height: 500px; min-height: 370px">
+            <img class="card-img-top" src=${product.imageUrl} alt="Card image cap">
             <div class="card-body">
-              <h5 class="cardProductName">Oggy</h5>
-              <p class="cardProductDescription">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias quam</p>
+              <h5 class="cardProductName">${product.name}</h5>
+              <p class="cardProductDescription">${product.description}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item cardProductPrice font-weight-bold">120€</li>
-              <li class="list-group-item cardProductColors"><div class="colorPuce puceBlue"></div></li>
+              <li class="list-group-item cardProductPrice font-weight-bold">${product.price} €</li>
+              <li class="list-group-item cardProductColors">${product.colors.length} choix de couleur</li>
             </ul>
           </div>
         </a> -->
@@ -87,7 +88,7 @@
         <div class="container p-3">
           <div class="row">
             <div class="col-12">
-              <img class="dropshadow-sm" src="/Frontend/img/logo_orinoco.png" width="100vw" alt="Orinoco, l'e-commerce spécialisé !">
+              <img class="dropshadow-sm" src="./Frontend/img/logo_orinoco.png" width="100vw" alt="Orinoco, l'e-commerce spécialisé !">
               <p class="m-3">Orinoco, l'e-commerce spécialisé</p>
             </div>
             </div>
@@ -118,6 +119,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- SCRIPTS PERSOS -->
-    <script src="/Frontend/index.js"></script>
+    <script src="./Frontend/all.js"></script>
+    <script src="./Frontend/index.js"></script>
   </body>
 </html>

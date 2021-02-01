@@ -7,7 +7,7 @@
 
     <!-- CSS PERSO -->
 
-    <link rel="stylesheet" href="/Frontend/style.css" />
+    <link rel="stylesheet" href="../Frontend/style.css" />
 
     <!-- BOOTSTRAP -->
     <link
@@ -18,7 +18,7 @@
     />
     <link
       rel="stylesheet"
-      href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+      href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"
     />
   </head>
 
@@ -29,15 +29,15 @@
       <header role="banner">
         <nav class="navbar shadow-sm sticky-top navbar-light bg-light">
           <div class="container-fluid">
-            <a href="index.html" class="navbar-brand"
+            <a href="../index.html" class="navbar-brand"
               ><img
                 class="dropshadow-sm"
                 alt="Orinoco, l'e-commerce spécialisé !"
-                src="/Frontend/img/logo_orinoco.png"
+                src="../Frontend/img/logo_orinoco.png"
                 width="120vw"
             /></a>
             <div class="d-flex">
-              <a href="basket.html" id="basketIcon"
+              <a href="../Frontend/basket.html" id="basketIcon"
                 ><i class="bi bi-cart3 dropshadow-sm"></i
               ><span id="basketNbr"></span></a>
             </div>
@@ -57,18 +57,17 @@
       <!-- FIN BANNER -->
 
       <!-- CONTENT -->
-      <div class="container">
+      <div class="container" id="productPageContent">
 
         <!--Section: Block Content-->
-        <section class="my-5">
+        <!-- <section class="my-5">
   
           <div class="row">
             <div class="col-md-5 mb-4 mb-md-0">
   
               <div class="view zoom z-depth-2 rounded">
-                <img class="img-fluid w-100" src="/JWDP5/images/teddy_5.jpg" alt="bobby">
+                <img class="img-fluid w-100" src="../JWDP5/images/teddy_5.jpg" alt="bobby">
               </div>
-  
             </div>
             <div class="col-md-7">
   
@@ -131,12 +130,12 @@
                   </tbody>
                 </table>
               </div>
-              <button type="button" class="button m-2 d-flex align-items-center px-3"><i class="bi bi-cart3 mr-2"></i
+              <button type="button" id="addCart" class="button m-2 d-flex align-items-center px-3"><i class="bi bi-cart3 mr-2"></i
                 >Ajouter au panier </button>
             </div>
           </div>
   
-        </section>
+        </section> -->
       </div>
       <!-- FIN CONTENT -->
 
@@ -146,7 +145,7 @@
         <div class="container p-3">
           <div class="row">
             <div class="col-12">
-              <img class="dropshadow-sm" src="/Frontend/img/logo_orinoco.png" width="100vw" alt="Orinoco, l'e-commerce spécialisé !">
+              <img class="dropshadow-sm" src="../Frontend/img/logo_orinoco.png" width="100vw" alt="Orinoco, l'e-commerce spécialisé !">
               <p class="m-3">Orinoco, l'e-commerce spécialisé</p>
             </div>
             </div>
@@ -177,6 +176,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- SCRIPTS PERSOS -->
-    <script src="index.js"></script>
+    <script src="../Frontend/all.js"></script>
+    <script src="../Frontend/product.js"></script>
   </body>
 </html>

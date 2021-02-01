@@ -32,6 +32,10 @@
   border: none;
 }
 
+.productLink {
+  cursor: pointer;
+}
+
 .productCard {
   border-radius: 50px;
   width: 40vw;
