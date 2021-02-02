@@ -8,5 +8,5 @@ function displayBasketContent(array) {
 }
 
 // Test OK
-var basket = ['64739', '547690', '756463', '2378987']
+var basket = localStorage
 displayBasketContent(basket)
