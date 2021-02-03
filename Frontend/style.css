@@ -38,56 +38,98 @@
 
 .productCard {
   border-radius: 50px;
-  width: 40vw;
+  max-width: 700px;
+  width: 90vw;
 }
 
-.pucePink {
+.cardImg {
+  width: 10vw;
+}
+
+.productName {
+  overflow: visible;
+}
+
+.pucepink {
   background-color: pink;
 }
 
-.puceChocolate {
+.pucechocolate {
   background-color: chocolate;
 }
 
-.puceTan {
+.pucetan {
   background-color: tan;
 }
 
-.puceBeige {
+.pucebeige {
   background-color: beige;
 }
 
-.puceBrown {
+.pucebrown {
   background-color: #a54d2a;
 }
 
-.puceDarkBrown {
+.pucedarkbrown {
   background-color: #753517;
 }
 
-.pucePaleBrown {
+.pucepalebrown {
   background-color: #a16933;
 }
 
-.puceWhite {
+.pucewhite {
   background-color: white;
+  border: 0.5px black solid;
 }
 
-.puceBlue {
+.puceblue {
   background-color: blue;
 }
 
 .colorPuce {
   height: 40px;
   width: 40px;
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
-.colorTxt {
-  font-size: 0.8rem;
-  padding: 4px 0 0 2px;
+.productName {
+  font-size: 1.5rem;
 }
 
+#removeBtn {
+  color: black;
+}
+
+.removeBtn {
+  width: 45px;
+}
+
+@media screen and (max-width: 800px) {
+  .colorPuce {
+    height: 20px;
+    width: 20px;
+  }
+
+  .productName {
+    font-size: 1.1rem;
+  }
+
+  .removeBtn {
+    padding: 0px;
+    height: 30px;
+    width: 30px;
+    background: #9e74fa;
+    border-radius: 50%;
+    color: white;
+    text-shadow: 1px 1px 1px #dddddd;
+    border: none;
+  }
+
+  #removeBtn {
+    font-size: 0.8rem;
+  }
+}
 /* COLOR PICKER */
 .white {
   border: 2px solid #bfbfbf;
@@ -104,53 +146,51 @@ input[type=radio]:checked + label span {
   transform: scale(1.25);
 }
 input[type=radio]:checked + label .chocolate {
-  border: 1.5px solid black;
+  border: 2px solid #62310e;
 }
 input[type=radio]:checked + label .tan {
-  border: 1.5px solid black;
+  border: 2px solid #a0763f;
 }
 input[type=radio]:checked + label .beige {
-  border: 1.5px solid black;
+  border: 2px solid #d9d979;
 }
 input[type=radio]:checked + label .brown {
-  border: 1.5px solid black;
+  border: 2px solid #4d2110;
 }
 input[type=radio]:checked + label .darkbrown {
-  border: 1.5px solid black;
+  border: 2px solid black;
 }
 input[type=radio]:checked + label .palebrown {
-  border: 1.5px solid black;
+  border: 2px solid #402a14;
 }
 input[type=radio]:checked + label .blue {
-  border: 1.5px solid black;
+  border: 2px solid navy;
 }
 input[type=radio]:checked + label .white {
-  border: 1.5px solid black;
+  border: 2px solid #bfbfbf;
 }
 input[type=radio]:checked + label .pink {
-  border: 1.5px solid black;
+  border: 2px solid #ff4162;
 }
 input[type=radio]:checked + label .black {
-  border: 1.5px solid black;
+  border: 2px solid black;
 }
 
 label {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-right: 10px;
   cursor: pointer;
 }
 label:hover span {
   transform: scale(1.25);
-  border: 1.5px solid black;
 }
 label span {
   display: block;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 0 1px white inset;
   transition: transform 0.2s ease-in-out;
 }
 label span.chocolate {
@@ -163,10 +203,10 @@ label span.beige {
   background: beige;
 }
 label span.brown {
-  background: #a54d2a;
+  background: #b64f26;
 }
 label span.darkbrown {
-  background: #753517;
+  background: #5a270f;
 }
 label span.palebrown {
   background: #a16933;

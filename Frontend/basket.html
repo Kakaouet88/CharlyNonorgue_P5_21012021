@@ -59,12 +59,12 @@
       <!-- CONTENT -->
 
       <div class="container">
-              <div id="basketContent d-flex justify-content-center">
+              <div id="basketContent" class="justify-content-center">
                 <!-- ELSE SI PANIER VIDE -->
-                  <p class="text-center page-height">Oups !... C'est bien vide ici...</p>
+                  <!-- <p class="text-center page-height">Oups !... C'est bien vide ici...</p> -->
 
                 <!-- IF PANIER PAS VIDE CARTE PRODUIT MODELE-->
-                <a href="../Frontend/product.html" class="text-decoration-none text-reset">
+                <!-- <a href="../Frontend/product.html" class="text-decoration-none text-reset">
                   <div class="productCard shadow-sm row mx-auto d-flex justify-content-center align-items-center my-5">
                     <div class="col-4 p-2 cardText">
                       <h2 class="cardTitle productName h4 ml-3">Willy</h2>
@@ -81,15 +81,16 @@
                     </div>
                   </div>
               </div>
-            </a>
-              <!-- FIN CARTE PRODUIT -->
-
+            </a> -->
+            <!-- FIN CARTE PRODUIT -->
+          </div>
+              
               <hr>
-
+              
               <!-- TOTAL -->
 
-              <div class="basketTotal d-flex justify-content-center m-5 h4">
-                <p class="total">TOTAL : <span class="totalNbr">400€</span></p>
+              <div id="basketTotal" class="basketTotal d-flex justify-content-center m-5 h4">
+                <p class="total dropshadow-sm">TOTAL : <span id="totalNbr" class="totalNbr"></span></p>
               </div>
 
               <!-- BTN ORDER -->
@@ -137,6 +138,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- SCRIPTS PERSOS -->
-    <script src="../Frontend/all.js"></script>
+    <script src="../Frontend/managebasket.js"></script>
+    <script src="../Frontend/basket.js"></script>
   </body>
 </html>

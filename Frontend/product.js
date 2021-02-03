@@ -34,28 +34,9 @@ fetch("http://localhost:3000/api/teddies/" + productID)
               </div>
             </div>
 
-            <hr>
-            <div class="table-responsive mb-2">
-            <table class="table table-sm table-borderless">
-                <tbody>
-                  <tr>
-                  <td class="pl-0 pb-0 w-25">Quantity</td>
-                  </tr>
-                  <tr>
-                    <td class="pl-0">
-                      <div class="def-number-input number-input safari_only mb-0">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="font-weight-bold"> - </button>
-                        <input id="inputQty" class="quantity" min="0" name="quantity" value="1" type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          class="font-weight-bold"> + </button>
-                          </div>
-                          </td>
-                  </tr>
-                </tbody>
-                </table>
-            </div>
-            <button type="button" id="addToBasket" class="button m-2 d-flex align-items-center px-3"><i class="bi bi-cart3 mr-2"></i
+            <hr class="mt-5">
+            
+            <button type="button" id="addToBasket" class="button m-2 mt-5 d-flex align-items-center px-3"><i class="bi bi-cart3 mr-2"></i
               >Ajouter au panier </button>
           </div>
         </div>
@@ -74,51 +55,40 @@ fetch("http://localhost:3000/api/teddies/" + productID)
     }
 
     // AFFICHER COULEURS
-    for (i = 0; i < product.colors.length; i++) {
+    for (let color of product.colors) {
       // Puce couleur
       document.getElementById("colorPickerForm").innerHTML += `
-      <input type="radio" name="color" value="${product.colors[
-        i
-      ].toLowerCase()}" id="${product.colors[i].toLowerCase()}" />
-      <label for="${product.colors[
-        i
-      ].toLowerCase()}"  class="mr-2"><span class="${product.colors[
-        i
-      ].toLowerCase()}"></span></label>
+      <input type="radio" name="color" id="${color.toLowerCase()}" value="${color.toLowerCase().replace(/\s+/g, '')}"/>
+      <label for="${color.toLowerCase()}" class="colorPickerRadio"><span class="${color.toLowerCase().replace(/\s+/g, '')}"></span></label>
       `;
     }
 
     // AJOUT BASKET
-    document.getElementById("colorPickerForm").addEventListener("click", () => {
-      var productColor = document.querySelector("input[name = color]:checked")
-        .value;
-      console.log(productColor);
-      
-      var inputQty = document.getElementById("inputQty");
-      var productSpecs = {
-        ID: productID,
-        COLOR: productColor,
-      };
-    });
-      
-      document.getElementById("addToBasket").addEventListener("click", () => {
-        console.log("piip");
-        console.log(productColor);
+    var productSpecs = {
+      ID: product._id,
+      COLOR: null,
+      NAME: product.name,
+      PRICE: product.price,
+      IMG: product.imageUrl,
+    };
 
-        if (productColor != undefined) {
-        
-        for (i = 0; i < inputQty.value; i++) {
-          localStorage.setItem(
-            "Product" + (localStorage.length + 1),
-            JSON.stringify(productSpecs)
-            );
-            console.log(localStorage);
-          }
-          displayBasketContent(basket);
-        } else {
-        alert('Vous devez choisir une couleur !')
+    var colorPickerRadio = document.getElementsByClassName("colorPickerRadio");
+
+    for (let radio of colorPickerRadio) {
+      radio.addEventListener("click", (event) => {
+        productSpecs.COLOR = event.target.parentNode.previousElementSibling.value
+        console.log(productSpecs.COLOR);
+      });
+    }
+
+    document.getElementById("addToBasket").addEventListener("click", () => {
+      if (productSpecs.COLOR != null) {
+        console.log("piip");
+        addToBasket(productSpecs);
+      } else {
+        alert("Vous n'avez pas sélectionné de couleur pour votre ourson")
       }
     });
-  })
+  });
 
 console.log(localStorage);

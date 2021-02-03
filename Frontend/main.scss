@@ -1,151 +1,188 @@
 .dropshadow {
-    filter: drop-shadow(3px 3px 3px rgb(170, 170, 170));
+  filter: drop-shadow(3px 3px 3px rgb(170, 170, 170));
+}
+
+.dropshadow-sm {
+  filter: drop-shadow(3px 3px 3px rgb(206, 206, 206));
+}
+
+.bi-cart3 {
+  font-size: 1.4rem;
+}
+
+.fs-3 {
+  font-size: 1.4rem;
+}
+
+#banner {
+  padding: 20px;
+  background: linear-gradient(140deg, #e8ac5e94, #8f5ef87e);
+}
+
+.page-height {
+  padding: 25vh 0 25vh 0;
+}
+
+.button {
+  padding: 10px;
+  background: #9e74fa;
+  border-radius: 80px;
+  color: white;
+  text-shadow: 1px 1px 1px rgb(221, 221, 221);
+  border: none;
+}
+
+.productLink {
+  cursor: pointer;
+}
+
+.productCard {
+  border-radius: 50px;
+  max-width: 700px;
+  width: 90vw;
+}
+
+.cardImg {
+  width: 10vw;
+}
+
+.productName {
+  overflow: visible;
+}
+
+.pucepink {
+  background-color: pink;
+}
+
+.pucechocolate {
+  background-color: chocolate;
+}
+
+.pucetan {
+  background-color: tan;
+}
+
+.pucebeige {
+  background-color: beige;
+}
+
+.pucebrown {
+  background-color: rgb(165, 77, 42);
+}
+
+.pucedarkbrown {
+  background-color: rgb(117, 53, 23);
+}
+
+.pucepalebrown {
+  background-color: rgb(161, 105, 51);
+}
+
+.pucewhite {
+  background-color: white;
+  border: 0.5px black solid;
+}
+
+.puceblue {
+  background-color: blue;
+}
+
+.colorPuce {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.productName {
+  font-size: 1.5rem;
+}
+
+#removeBtn {
+  color: black;
+}
+.removeBtn {
+  width: 45px;
+}
+
+@media screen and (max-width: 800px) {
+  .colorPuce {
+  height: 20px;
+  width: 20px;
   }
-  
-  .dropshadow-sm {
-    filter: drop-shadow(3px 3px 3px rgb(206, 206, 206));
+  .productName {
+    font-size: 1.1rem;
   }
-  
-  .bi-cart3 {
-    font-size: 1.4rem;
-  }
-  
-  .fs-3{
-      font-size: 1.4rem;
-  }
-  
-  #banner{
-      padding: 20px;
-      background: linear-gradient(140deg, #e8ac5e94, #8f5ef87e);
-  }
-  
-  .page-height{
-    padding: 25vh 0 25vh 0;
-  }
-  
-  .button{
-    padding: 10px;
+  .removeBtn {
+    padding: 0px;
+    height: 30px;
+    width: 30px;
     background: #9e74fa;
-    border-radius: 80px;
+    border-radius: 50%;
     color: white;
     text-shadow: 1px 1px 1px rgb(221, 221, 221);
     border: none;
   }
-
-  .productLink{
-    cursor: pointer;
-  }
-  
-  .productCard{
-    border-radius: 50px;
-    width: 40vw;
-  }
-  
-  .pucePink{
-    background-color: pink;
-  }
-  
-  .puceChocolate{
-    background-color: chocolate;
-  }
-  
-  .puceTan{
-    background-color: tan;
-  }
-  
-  .puceBeige{
-    background-color: beige;
-  }
-  
-  .puceBrown{
-    background-color: rgb(165, 77, 42);
-  }
-  
-  .puceDarkBrown{
-    background-color: rgb(117, 53, 23);
-  }
-  
-  .pucePaleBrown{
-    background-color: rgb(161, 105, 51);
-  }
-  
-  .puceWhite{
-    background-color: white;
-  }
-  
-  .puceBlue{
-    background-color: blue;
-  }
-  
-  .colorPuce{
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-  }
-  
-  .colorTxt{
+  #removeBtn {
     font-size: .8rem;
-    padding: 4px 0 0 2px;
   }
-  
-  /* COLOR PICKER */
-  
-  $colors: (
-    chocolate: chocolate,
-    tan: tan,
-    beige: beige,
-    brown: rgb(165, 77, 42),
-    darkbrown: rgb(117, 53, 23),
-    palebrown: rgb(161, 105, 51),
-    blue: blue,
-    white: white,
-    pink: pink,
-    black: black,
-  );
+}
 
-  .white{
-    border: 2px solid darken(white, 25%);
+/* COLOR PICKER */
+
+$colors: (
+  chocolate: chocolate,
+  tan: tan,
+  beige: beige,
+  brown: rgb(182, 79, 38),
+  darkbrown: rgb(90, 39, 15),
+  palebrown: rgb(161, 105, 51),
+  blue: blue,
+  white: white,
+  pink: pink,
+  black: black,
+);
+
+.white {
+  border: 2px solid darken(white, 25%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  display: none;
+  &:checked + label {
+    span { transform: scale(1.25); }
+    @each $name, $value in $colors {
+      .#{$name} {
+        border: 2px solid darken($value, 25%);
+      }
+    } // !@each
+  } // !&:checked + label
+}
+
+label {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+  &:hover {
+    span { 
+      transform: scale(1.25); 
+    }
   }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  input[type="radio"] {
-    display: none;
-    &:checked + label {
-      span { transform: scale(1.25); }
-      @each $name, $value in $colors {
-        .#{$name} {
-          border: 1.5px solid black;
-        }
-      } // !@each
-    } // !&:checked + label
-  }
-  
-  label {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    cursor: pointer;
-    &:hover {
-      span { 
-        transform: scale(1.25); 
-        border: 1.5px solid black;
+  span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform .2s ease-in-out;
+    @each $name, $value in $colors {
+      &.#{$name} {
+        background: $value;
       }
     }
-    span {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      box-shadow: 0 0 0 1px white inset;
-      transition: transform .2s ease-in-out;
-      @each $name, $value in $colors {
-        &.#{$name} {
-          background: $value;
-        }
-      }
-    }
   }
+}
