@@ -103,10 +103,18 @@
 
 #removeBtn {
   color: black;
+  font-size: 0.8rem;
 }
 
 .removeBtn {
   width: 45px;
+  padding: 0px;
+  height: 45px;
+  background: #9e74fa96;
+  border-radius: 50%;
+  color: white;
+  text-shadow: 1px 1px 1px #dddddd;
+  border: none;
 }
 
 @media screen and (max-width: 800px) {
@@ -118,22 +126,8 @@
   .productName {
     font-size: 1.1rem;
   }
-
-  .removeBtn {
-    padding: 0px;
-    height: 30px;
-    width: 30px;
-    background: #9e74fa;
-    border-radius: 50%;
-    color: white;
-    text-shadow: 1px 1px 1px #dddddd;
-    border: none;
-  }
-
-  #removeBtn {
-    font-size: 0.8rem;
-  }
 }
+
 /* COLOR PICKER */
 .white {
   border: 2px solid #bfbfbf;
@@ -143,40 +137,40 @@
   box-sizing: border-box;
 }
 
-input[type=radio] {
+input[type="radio"] {
   display: none;
 }
-input[type=radio]:checked + label span {
+input[type="radio"]:checked + label span {
   transform: scale(1.25);
 }
-input[type=radio]:checked + label .chocolate {
+input[type="radio"]:checked + label .chocolate {
   border: 2px solid #62310e;
 }
-input[type=radio]:checked + label .tan {
+input[type="radio"]:checked + label .tan {
   border: 2px solid #a0763f;
 }
-input[type=radio]:checked + label .beige {
+input[type="radio"]:checked + label .beige {
   border: 2px solid #d9d979;
 }
-input[type=radio]:checked + label .brown {
+input[type="radio"]:checked + label .brown {
   border: 2px solid #4d2110;
 }
-input[type=radio]:checked + label .darkbrown {
+input[type="radio"]:checked + label .darkbrown {
   border: 2px solid black;
 }
-input[type=radio]:checked + label .palebrown {
+input[type="radio"]:checked + label .palebrown {
   border: 2px solid #402a14;
 }
-input[type=radio]:checked + label .blue {
+input[type="radio"]:checked + label .blue {
   border: 2px solid navy;
 }
-input[type=radio]:checked + label .white {
+input[type="radio"]:checked + label .white {
   border: 2px solid #bfbfbf;
 }
-input[type=radio]:checked + label .pink {
+input[type="radio"]:checked + label .pink {
   border: 2px solid #ff4162;
 }
-input[type=radio]:checked + label .black {
+input[type="radio"]:checked + label .black {
   border: 2px solid black;
 }
 

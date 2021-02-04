@@ -51,7 +51,7 @@ function displayBasketHTML() {
                     )} €</p>
                 </div>
                 <div class="my-auto mx-auto">
-                <button type="button" class="removeBtn button dropshadow-sm" id="removeBtn" data-id="${
+                <button type="button" class="button removeBtn dropshadow-sm" id="removeBtn" data-id="${
                   product.id
                 }" data-color="${
         product.color
