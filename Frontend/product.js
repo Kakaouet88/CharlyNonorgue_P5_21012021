@@ -1,9 +1,13 @@
 // *********PRODUCT**************
+let apiUrl = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+? "http://localhost:3000"
+: "https://orinoco-p5-nonorgue.herokuapp.com"
+
 var products;
 let param = new URL(window.location).searchParams;
 let productID = param.get("id");
 
-fetch("http://localhost:3000/api/teddies/" + productID)
+fetch(apiUrl + "/api/teddies/" + productID)
   // RECUP PRODUIT PAR ID
   .then((res) => res.json())
   .then((product) => {

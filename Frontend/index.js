@@ -1,9 +1,12 @@
 // ***************FETCH*************
+let apiUrl = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+? "http://localhost:3000"
+: "https://orinoco-p5-nonorgue.herokuapp.com"
 
 let products;
 
 const fetchProducts = async () => {
-  products = await fetch("http://localhost:3000/api/teddies").then((res) =>
+  products = await fetch(apiUrl + "/api/teddies").then((res) =>
     res.json()
   );
   console.log(products);
