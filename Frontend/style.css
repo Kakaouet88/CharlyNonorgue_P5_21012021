@@ -20,7 +20,7 @@
 }
 
 .page-height {
-  padding: 25vh 0 25vh 0;
+  padding: 20vh 0 25vh 0;
 }
 
 .button {
@@ -85,6 +85,10 @@
 
 .puceblue {
   background-color: blue;
+}
+
+.puceblack {
+  background-color: black;
 }
 
 .colorPuce {

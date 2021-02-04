@@ -65,24 +65,24 @@ fetch("http://localhost:3000/api/teddies/" + productID)
 
     // AJOUT BASKET
     var productSpecs = {
-      ID: product._id,
-      COLOR: null,
-      NAME: product.name,
-      PRICE: product.price,
-      IMG: product.imageUrl,
+      id: product._id,
+      color: null,
+      name: product.name,
+      price: product.price,
+      img: product.imageUrl,
     };
 
     var colorPickerRadio = document.getElementsByClassName("colorPickerRadio");
 
     for (let radio of colorPickerRadio) {
       radio.addEventListener("click", (event) => {
-        productSpecs.COLOR = event.target.parentNode.previousElementSibling.value
-        console.log(productSpecs.COLOR);
+        productSpecs.color = event.target.parentNode.previousElementSibling.value
+        console.log(productSpecs.color);
       });
     }
 
     document.getElementById("addToBasket").addEventListener("click", () => {
-      if (productSpecs.COLOR != null) {
+      if (productSpecs.color != null) {
         console.log("piip");
         addToBasket(productSpecs);
       } else {

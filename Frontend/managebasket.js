@@ -23,6 +23,8 @@ function addToBasket(product) {
   displayBasketContent();
 }
 
-function removeFromBasket(product) {
-    
+function removeFromBasket(productObj) {
+  var basket = getBasket();
+  basket = basket.filter(product => product.id != productObj.id || product.color != productObj.color);
+  localStorage.setItem("basket", JSON.stringify(basket));
 }
