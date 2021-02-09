@@ -28,10 +28,13 @@ var post = function (x) {
     xhr.onreadystatechange = function () {
       if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.status == 201) {
-          resolve(xhr.responseText);
           console.log("ok", xhr);
+          resolve(xhr.responseText);
         } else {
           console.log("error");
+          contact.innerHTML = `
+        <div class="page-height"><p class="text-danger">Une erreur s'est produite : ${xhr.status} <br> ${xhr.responseText}</p></div>
+        `;
           reject(xhr);
         }
       }
@@ -46,10 +49,45 @@ var post = function (x) {
 var getOrderId = async function (x) {
   var response = await post(x);
   var orderSummary = JSON.parse(response);
-  var orderId = orderSummary.order_id;
-  console.log(orderId);
-  return orderId;
+  console.log(orderSummary);
+  return orderSummary.order_id;
 };
+
+// fonction async qui post et affiche confirmation
+var confirmOrder = async function (x) {
+    var orderId =  await getOrderId(x);
+    // affichage confirmation de commande
+    contact.classList.add("text-center");
+    document.getElementById("validForm").innerHTML = "";
+    contact.innerHTML = `
+        <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${orderId}</strong> est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à <strong>${email.value}</strong>.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
+        `;
+    document.getElementById("banner").innerHTML = `
+    <h1 class="h2 dropshadow">Commande confirmée !</h1>
+    <p class="fs-3 dropshadow m-0">Merci de votre confiance</p>
+    `;
+}
+
+// boolean qui verif le formulaire et affiche erreur si mal rempli
+var checkForm = function () {
+  if (
+    email.checkValidity() &&
+    address.checkValidity() &&
+    city.checkValidity() &&
+    firstName.checkValidity() &&
+    lastName.checkValidity()
+  ) {
+    return true;
+  } else {
+    document.getElementById("validForm").innerHTML = `
+        <span class="text-danger">Veuillez renseigner correctement tous les champs du formulaire afin de passer la commande.</span>
+        `;
+    return false;
+  }
+};
+
+// fonction qui affiche la confirmation de commande
+
 
 // POST au click submit
 submit.addEventListener("click", () => {
@@ -64,34 +102,53 @@ submit.addEventListener("click", () => {
     },
     produits: basketIds(),
   };
-  //   validation des données form
-  if (
-    email.checkValidity() &&
-    address.checkValidity() &&
-    city.checkValidity() &&
-    firstName.checkValidity() &&
-    lastName.checkValidity()
-  ) {
-    //   si valide envoi des données***********************************
-    getOrderId(order);
-
-    let orderId;
-    // remise à 0 du panier localstorage
-    // localStorage.clear();
-
-    // affichage confirmation de commande
-    contact.classList.add("text-center");
-    document.getElementById("validForm").innerHTML = "";
-    contact.innerHTML = `
-        <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${orderId}</strong> est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à <strong>${email.value}</strong>.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
-        `;
-    document.getElementById("banner").innerHTML = `
-    <h1 class="h2 dropshadow">Commande confirmée !</h1>
-    <p class="fs-3 dropshadow m-0">Merci de votre confiance</p>
-    `;
+  if (checkForm()) {
+      confirmOrder(order);
+    // remise à 0 du panier localstorage ** localStorage.clear();
   } else {
-    document.getElementById("validForm").innerHTML = `
-        <span class="text-danger">Veuillez renseigner correctement tous les champs du formulaire afin de passer la commande.</span>
-        `;
+      checkForm();
   }
 });
+
+// submit.addEventListener("click", () => {
+//     // objet order contenant objet contact et array products
+//     var order = {
+//       contact: {
+//         email: email.value,
+//         address: address.value,
+//         city: city.value,
+//         firstName: firstName.value,
+//         lastName: lastName.value,
+//       },
+//       produits: basketIds(),
+//     };
+
+//     //   validation des données form
+//     if (
+//       email.checkValidity() &&
+//       address.checkValidity() &&
+//       city.checkValidity() &&
+//       firstName.checkValidity() &&
+//       lastName.checkValidity()
+//     ) {
+//       //   si valide envoi des données***********************************
+//       var orderId = getOrderId(order);
+//       // remise à 0 du panier localstorage
+//       // localStorage.clear();
+
+//       // affichage confirmation de commande
+//       contact.classList.add("text-center");
+//       document.getElementById("validForm").innerHTML = "";
+//       contact.innerHTML = `
+//           <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${orderId}</strong> est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à <strong>${email.value}</strong>.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
+//           `;
+//       document.getElementById("banner").innerHTML = `
+//       <h1 class="h2 dropshadow">Commande confirmée !</h1>
+//       <p class="fs-3 dropshadow m-0">Merci de votre confiance</p>
+//       `;
+//     } else {
+//       document.getElementById("validForm").innerHTML = `
+//           <span class="text-danger">Veuillez renseigner correctement tous les champs du formulaire afin de passer la commande.</span>
+//           `;
+//     }
+//   });
