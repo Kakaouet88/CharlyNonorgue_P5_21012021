@@ -84,6 +84,8 @@ function displayBasketHTML() {
         console.log(removeProduct);
         removeFromBasket(removeProduct);
         displayBasketHTML();
+        displayBasketContent();
+        
       });
     }
   }

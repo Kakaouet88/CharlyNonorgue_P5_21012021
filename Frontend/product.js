@@ -39,8 +39,10 @@ fetch(apiUrl + "/api/teddies/" + productID)
             </div>
 
             <hr class="mt-5">
+
+            <div class="row" id="colorError"></div>
             
-            <button type="button" id="addToBasket" class="button m-2 mt-5 d-flex align-items-center px-3"><i class="bi bi-cart3 mr-2"></i
+            <button type="button" id="addToBasket" class="button m-2 mt-4 d-flex align-items-center px-3"><i class="bi bi-cart3 mr-2"></i
               >Ajouter au panier </button>
           </div>
         </div>
@@ -82,15 +84,19 @@ fetch(apiUrl + "/api/teddies/" + productID)
       radio.addEventListener("click", (event) => {
         productSpecs.color = event.target.parentNode.previousElementSibling.value
         console.log(productSpecs.color);
+        document.getElementById('colorError').innerHTML = ''
       });
     }
 
     document.getElementById("addToBasket").addEventListener("click", () => {
       if (productSpecs.color != null) {
-        console.log("piip");
         addToBasket(productSpecs);
+        document.getElementById('colorError').innerHTML = 
+        `<span class="m-3 text-success">Ajouté au panier !</span>`
       } else {
-        alert("Vous n'avez pas sélectionné de couleur pour votre ourson")
+        document.getElementById('colorError').innerHTML = `
+        <span class="m-3 text-danger">Vous n'avez pas choisi de couleur pour votre ourson.</span>
+        `;
       }
     });
   });

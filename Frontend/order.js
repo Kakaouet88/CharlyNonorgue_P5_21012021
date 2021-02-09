@@ -1,31 +1,102 @@
 // *********************ORDER*******************
+const submit = document.getElementById("submitBtn");
+const contact = document.getElementById("contactForm");
+
+const email = document.getElementById("email");
+const address = document.getElementById("address");
+const city = document.getElementById("city");
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
 
 // récup en string les ids des produits du panier + couleur
 function basketIds() {
-    let ids = [];
-    let basket = getBasket();
-    for (let product of basket) {
-        ids.push(product.id + "/" + product.color)
-    }
-    basket = ids
-    return basket
+  let ids = [];
+  let basket = getBasket();
+  for (let product of basket) {
+    ids.push(product.id + "/" + product.color);
+  }
+  basket = ids;
+  return basket;
 }
 console.log(basketIds());
 
 // fonction pour envoyer la requete POST
-function sendDatas(x) {
+var post = function(x) {
+
+  return new Promise((resolve, reject) => {
+
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/order");
-    xhr.send(x);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            if (xhr.status == 201) {
+                resolve(xhr.responseText);
+                console.log("ok", xhr);
+            } else {
+                console.log("error");  
+                reject(xhr);
+            }
+        }
+    };
+    xhr.open("POST", "http://localhost:3000/api/teddies/order", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(x));
+  });
 }
 
+// fonction pour recup la reponse et les order_id
+// var getOrderId = function(x) {
+//     return post(x).then(function(response) {
+//             var orderSummary = JSON.parse(response);
+//             return orderSummary;
+//         }).then(function() {
+//             var orderId = orderSummary.order_id;
+//             console.log(orderId);
+//             return orderId;
+//         });
+//     };
+
 // POST au click submit
-const submit = document.getElementById('submitBtn')
-const contact = document.getElementById('contactForm')
+submit.addEventListener("click", () => {
+  // objet order contenant objet contact et array products
+  var order = {
+    contact: {
+      email: email.value,
+      address: address.value,
+      city: city.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+    },
+    produits: basketIds(),
+  };
+  //   validation des données form
+  if (
+    email.checkValidity() &&
+    address.checkValidity() &&
+    city.checkValidity() &&
+    firstName.checkValidity() &&
+    lastName.checkValidity()
+  ) {
+    //   si valide envoi des données
+    post(order);
 
-submit.addEventListener('click', () => {
-    var formD = new FormData(contact)
-    formD.append("basket", basketIds())
-    sendDatas(formD)
-})
+    let orderId;
+    // remise à 0 du panier localstorage
+    // localStorage.clear();
 
+    // affichage confirmation de commande
+    contact.classList.add("text-center");
+    document.getElementById("validForm").innerHTML = "";
+    contact.innerHTML = `
+        <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${orderId}</strong> est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à <strong>${email.value}</strong>.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
+        `;
+    document.getElementById("banner").innerHTML = `
+    <h1 class="h2 dropshadow">Commande confirmée !</h1>
+    <p class="fs-3 dropshadow m-0">Merci de votre confiance</p>
+    `;
+  } else {
+    document.getElementById("validForm").innerHTML = `
+        <span class="text-danger">Veuillez renseigner correctement tous les champs du formulaire afin de passer la commande.</span>
+        `;
+  }
+});
