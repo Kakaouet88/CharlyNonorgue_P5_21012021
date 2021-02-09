@@ -21,40 +21,35 @@ function basketIds() {
 console.log(basketIds());
 
 // fonction pour envoyer la requete POST
-var post = function(x) {
-
+var post = function (x) {
   return new Promise((resolve, reject) => {
-
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            if (xhr.status == 201) {
-                resolve(xhr.responseText);
-                console.log("ok", xhr);
-            } else {
-                console.log("error");  
-                reject(xhr);
-            }
+      if (xhr.readyState == XMLHttpRequest.DONE) {
+        if (xhr.status == 201) {
+          resolve(xhr.responseText);
+          console.log("ok", xhr);
+        } else {
+          console.log("error");
+          reject(xhr);
         }
+      }
     };
     xhr.open("POST", "http://localhost:3000/api/teddies/order", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(x));
   });
-}
+};
 
 // fonction pour recup la reponse et les order_id
-// var getOrderId = function(x) {
-//     return post(x).then(function(response) {
-//             var orderSummary = JSON.parse(response);
-//             return orderSummary;
-//         }).then(function() {
-//             var orderId = orderSummary.order_id;
-//             console.log(orderId);
-//             return orderId;
-//         });
-//     };
+var getOrderId = async function (x) {
+  var response = await post(x);
+  var orderSummary = JSON.parse(response);
+  var orderId = orderSummary.order_id;
+  console.log(orderId);
+  return orderId;
+};
 
 // POST au click submit
 submit.addEventListener("click", () => {
@@ -77,8 +72,8 @@ submit.addEventListener("click", () => {
     firstName.checkValidity() &&
     lastName.checkValidity()
   ) {
-    //   si valide envoi des données
-    post(order);
+    //   si valide envoi des données***********************************
+    getOrderId(order);
 
     let orderId;
     // remise à 0 du panier localstorage
