@@ -14,6 +14,10 @@
   font-size: 1.4rem;
 }
 
+.teddies {
+  font-size: .9rem;
+}
+
 #banner {
   padding: 20px;
   background: linear-gradient(140deg, #e8ac5e94, #8f5ef87e);

@@ -32,7 +32,7 @@ const displayProductsList = async () => {
               <p class="cardProductDescription">${product.description}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item cardProductPrice font-weight-bold">${product.price} €</li>
+              <li class="list-group-item cardProductPrice font-weight-bold">${numberWithCommas(product.price)} €</li>
               <li class="list-group-item cardProductColors">${product.colors.length} choix de couleur</li>
             </ul>
           </div>

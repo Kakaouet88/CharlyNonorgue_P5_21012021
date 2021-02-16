@@ -1,24 +1,6 @@
 // *******************BASKET PAGE*****************************
 
-// RECUP CONTENU BASKET
-
 console.log(localStorage);
-
-// TOTAL
-function Total() {
-  var basketContent = getBasket();
-  var totalPrice = 0;
-  for (let product of basketContent) {
-    totalPrice += product.price;
-  }
-  document.getElementById("totalNbr").innerHTML =
-    spacenumber(totalPrice) + " €";
-}
-
-// POUR ESPACER LES MILLIEMES
-function spacenumber(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-}
 
 // AFFICHER CONTENU PANIER
 function displayBasketHTML() {
@@ -46,7 +28,7 @@ function displayBasketHTML() {
                 <img src="${product.img}" alt="productName" class="cardImg">
                     </div>
                 <div class="mx-auto my-auto">
-                    <p class="cardPrice font-weight-bold">${spacenumber(
+                    <p class="cardPrice font-weight-bold">${numberWithCommas(
                       product.price
                     )} €</p>
                 </div>
@@ -64,17 +46,15 @@ function displayBasketHTML() {
     }
     basketHTML.innerHTML += `<hr>
   <div id="basketTotal" class="basketTotal d-flex justify-content-center m-5 h4">
-<p class="total dropshadow-sm">TOTAL : <span id="totalNbr" class="totalNbr"></span></p>
+<p class="total dropshadow-sm">TOTAL : <span id="totalNbr" class="totalNbr">${Total()}</span></p>
 </div>
 
 <!-- BTN ORDER -->
 <div id="orderDiv" class="d-flex justify-content-center m-5">
 <a href="../Frontend/order.html"><button id="orderRedirectBtn" class="button dropshadow-sm"> Finaliser ma commande </button></a>
 </div>`;
-    Total();
-    var listRemoveBtn = document.getElementsByClassName("removeBtn");
-    // obtenir les keys associées à leur value pour comparer à celle de removeBtn.value
 
+    var listRemoveBtn = document.getElementsByClassName("removeBtn");
     for (let removeBtn of listRemoveBtn) {
       removeBtn.addEventListener("click", () => {
         var removeProduct = {
@@ -85,7 +65,6 @@ function displayBasketHTML() {
         removeFromBasket(removeProduct);
         displayBasketHTML();
         displayBasketContent();
-        
       });
     }
   }

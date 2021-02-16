@@ -28,7 +28,7 @@ fetch(apiUrl + "/api/teddies/" + productID)
           <div class="col-md-7">
 
           <h1 id="productPageName" class="h3">${product.name}</h1>
-            <p id="productPagePrice" class="font-weight-bold">${product.price} €</p>
+            <p id="productPagePrice" class="font-weight-bold">${numberWithCommas(product.price)} €</p>
             <p id="prodctPageDescription" class="pt-1">${product.description}</p>
 
             <div class="colorPick">

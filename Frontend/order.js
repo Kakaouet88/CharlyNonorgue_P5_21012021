@@ -1,4 +1,9 @@
 // *********************ORDER*******************
+let apiUrl =
+  location.hostname === "localhost" || location.hostname === "127.0.0.1"
+    ? "http://localhost:3000"
+    : "https://orinoco-p5-nonorgue.herokuapp.com";
+
 const submit = document.getElementById("submitBtn");
 const contact = document.getElementById("contactForm");
 
@@ -19,6 +24,12 @@ function basketIds() {
   return basket;
 }
 
+var clearStorages = function () {
+  localStorage.clear();
+  sessionStorage.clear();
+  displayBasketContent();
+};
+
 // fonction pour envoyer la requete POST
 var post = function (x) {
   return new Promise((resolve, reject) => {
@@ -38,12 +49,11 @@ var post = function (x) {
         }
       }
     };
-    xhr.open("POST", "http://localhost:3000/api/teddies/order", true);
+    xhr.open("POST", apiUrl + "/api/teddies/order", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(x));
   });
 };
-
 
 // boolean qui verif le formulaire et affiche erreur si mal rempli
 var checkForm = function () {
@@ -62,12 +72,10 @@ var checkForm = function () {
     return false;
   }
 };
-
 // POST au click submit
-
 submit.addEventListener("click", (event) => {
-    event.preventDefault();
-
+  event.preventDefault();
+  // creation de l'objet order contenant obj contact et array products
   var order = {
     contact: {
       email: email.value,
@@ -81,23 +89,21 @@ submit.addEventListener("click", (event) => {
 
   // validation des données form
   if (checkForm()) {
-
     // si valide = envoi de la requete post
-    post(order).then(result => {
-        contact.classList.add("text-center");
-    document.getElementById("validForm").innerHTML = "";
-    contact.innerHTML = `
-          <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${result.orderId}</strong> est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à <strong>${email.value}</strong>.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
+    post(order).then((result) => {
+      contact.classList.add("text-center");
+      document.getElementById("validForm").innerHTML = "";
+      var totalPrice = Total();
+      contact.innerHTML = `
+          <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${result.orderId}</strong> d'un montant de ${totalPrice} est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à <strong>${email.value}</strong>.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
           `;
-    document.getElementById("banner").innerHTML = `
+      document.getElementById("banner").innerHTML = `
       <h1 class="h2 dropshadow">Commande confirmée !</h1>
       <p class="fs-3 dropshadow m-0">Merci de votre confiance</p>
       `;
-    })
-
-    // remise à 0 du localstorage et sessionstorage
-    // localStorage.clear();
-    // sessionStorage.clear();
+      // remise à 0 du localstorage et sessionstorage, vidage du panier
+      clearStorages();
+    });
   } else {
     checkForm();
   }
