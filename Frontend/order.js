@@ -58,11 +58,11 @@ var post = function (x) {
 // boolean qui verif le formulaire et affiche erreur si mal rempli
 var checkForm = function () {
   if (
-    email.checkValidity() &&
-    address.checkValidity() &&
-    city.checkValidity() &&
-    firstName.checkValidity() &&
-    lastName.checkValidity()
+    email.reportValidity() &&
+    address.reportValidity() &&
+    city.reportValidity() &&
+    firstName.reportValidity() &&
+    lastName.reportValidity()
   ) {
     return true;
   } else {
