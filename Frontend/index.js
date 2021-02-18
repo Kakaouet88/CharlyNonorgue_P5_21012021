@@ -8,8 +8,9 @@ let products;
 const fetchProducts = async () => {
   products = await fetch(apiUrl + "/api/teddies").then((res) =>
     res.json()
-  );
+    ).catch((error) => {alert(error)});
   console.log(products);
+  return products;
 };
 
 // **************************PAGE INDEX******************************

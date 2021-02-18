@@ -86,6 +86,7 @@ submit.addEventListener("click", (event) => {
     },
     products: basketIds(),
   };
+  console.log(order);
 
   // validation des données form
   if (checkForm()) {
