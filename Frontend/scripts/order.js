@@ -96,7 +96,7 @@ submit.addEventListener("click", (event) => {
       document.getElementById("validForm").innerHTML = "";
       var totalPrice = Total();
       contact.innerHTML = `
-          <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${result.orderId}</strong> d'un montant de ${totalPrice} est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à <strong>${email.value}</strong>.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
+          <div class="page-height"><p class="text-success">Félicitations, votre commande <strong>n°${result.orderId}</strong> d'un montant de ${totalPrice} est confirmée !</p><p class="text-success">Vous pourrez très prochainement profiter de votre nouvel ourson. <br>Toutes les informations de livraison vous seront envoyées à ${email.value}.</p><p class="text-success">A bientôt sur Orinoco Teddies ${firstName.value} !</p></div>
           `;
       document.getElementById("banner").innerHTML = `
       <h1 class="h2 dropshadow">Commande confirmée !</h1>

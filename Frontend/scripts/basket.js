@@ -7,7 +7,7 @@ function displayBasketHTML() {
   var basketContent = getBasket();
   var basketHTML = document.getElementById("basketContent");
   if (basketContent.length < 1) {
-    basketHTML.innerHTML = `<p class="text-center page-height">Oups !... C'est bien vide ici...<br><br><a href="../index.html" alt="Liste des produits">Jetez un coup d'oeil à nos oursons</a></p>`;
+    basketHTML.innerHTML = `<p class="text-center page-height">Oups !... C'est bien vide ici...<br><br><a href="../Frontend/index.html" alt="Liste des produits">Jetez un coup d'oeil à nos oursons</a></p>`;
   } else {
     basketHTML.innerHTML = "";
     for (let product of basketContent) {
